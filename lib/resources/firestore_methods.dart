@@ -3,6 +3,7 @@ import 'dart:typed_data';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:health_mate/resources/storage_methos.dart';
+import 'package:intl/intl.dart';
 import 'package:uuid/uuid.dart';
 FirebaseFirestore _firestore = FirebaseFirestore.instance;
 class FirestoreMethos {
@@ -55,6 +56,40 @@ class FirestoreMethos {
       res = err.toString();
     }
     return res;
+  }
+
+  Future<String> addquestion(
+      {required String question,
+        required String option1,
+        required String option2,
+        required String option3,
+        required String option4,
+        required String rightans,
+      }) async {
+    // var uid =;
+    // print(uid);
+    String res = 'some error occure';
+    try{
+      await _firestore
+          .collection('khush')
+            .doc( DateFormat('dd-MM-yyyy- HH:mm:ss').format(DateTime.now()).toString())
+          .set({
+        'question': question,
+        'option1': option1,
+        'option2': option2,
+        'option3': option3,
+        'option4': option4,
+        'ans': rightans
+        // 'quesuid': uid
+      }).onError((error, stackTrace) => res = 'some error occure $error');
+      res = 'success';
+      return res;
+    }
+    catch(e){
+      res = "error occured $e";
+    }
+    return res;
+
   }
 
 }
