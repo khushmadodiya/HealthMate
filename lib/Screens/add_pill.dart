@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'dart:typed_data';
+// import 'package:android_alarm_manager/android_alarm_manager.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter/cupertino.dart';
@@ -10,6 +11,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:uuid/uuid.dart';
+import 'package:workmanager/workmanager.dart';
 import '../Notification Services/notifications.dart';
 import '../Widgets/dropdownforquntity.dart';
 import '../Widgets/dropdownforsyrup.dart';
@@ -335,7 +337,6 @@ class _AddPillsState extends State<AddPills> {
                     });
                     String ans ='';
                     var uid =Random().nextInt(10000000);
-                    if(isimage){
                        ans = await FirestoreMethos().addpill(
                         pillname: pillnamecontroller.text.trim(),
                         pilltype: pilltype,
@@ -344,22 +345,10 @@ class _AddPillsState extends State<AddPills> {
                         enddate: enddatecontroller.text,
                         timming: selectedTimming,
                         isimage:isimage,
-                       file:_image!,
+                        file:_image!,
                         notificationuid: uid,
                       );
-                    }
-                    else{
-                       ans = await FirestoreMethos().addpill(
-                        pillname: pillnamecontroller.text.trim(),
-                        pilltype: pilltype,
-                        pillamount: ispill ? selectedpill : selectedsyrup,
-                        startdate:startdatecontroller.text ,
-                        enddate: enddatecontroller.text,
-                        timming: selectedTimming,
-                        isimage:isimage,
-                        notificationuid: uid,
-                      );
-                    }
+
                     if(ans == 'success') {
                       LocalNotifications.showScheduleNotification(
                         id: uid,
@@ -369,6 +358,36 @@ class _AddPillsState extends State<AddPills> {
                         startdateTime: startschduletime!,
                         enddateTime: endschduletime!,
                       );
+                      // var minites = minutesUntil(startschduletime!);
+                      // print(minites);
+                      // Workmanager().registerOneOffTask(
+                      //     "notification", "simpleTask",
+                      //   inputData: <String, dynamic>{
+                      //     'id': uid,
+                      //     'title': "Time to take your medicine",
+                      //     'body': "pillname : ${pillnamecontroller.text}\nquantity : ${ispill ? selectedpill : selectedsyrup}",
+                      //     'payload': "This is schedule data",
+                      //     'startDateTime': startschduletime!.millisecondsSinceEpoch,
+                      //     'endDateTime': endschduletime!.millisecondsSinceEpoch,
+                      //   },
+                      //   initialDelay: Duration(minutes: minites)
+                      // );
+                      // await AndroidAlarmManager.periodic(
+                      //   const Duration(minutes: 1), // Repeat every day
+                      //   uid, // Unique ID for the alarm
+                      //   await LocalNotifications.schedulePeriodicNotifications(
+                      //     id: uid,
+                      //     title: "Time to take your medicine",
+                      //     body: "pillname : ${pillnamecontroller.text}\nquantity : ${ispill ? selectedpill : selectedsyrup}",
+                      //     payload: "This is schedule data",
+                      //     startdateTime: startschduletime!,
+                      //     enddateTime: endschduletime!,
+                      //   ), // Function to be called
+                      //   startAt: startschduletime!, // Start the alarm at 9 PM
+                      //   exact: true, // Execute exactly at the specified time
+                      //   wakeup: true, // Wake up the device to execute the task
+                      //   rescheduleOnReboot: true, // Reschedule the alarm after device reboot
+                      // );
                       setState(() {
                         issubmit = true;
                       });
@@ -397,6 +416,12 @@ class _AddPillsState extends State<AddPills> {
         ),
       ),
     );
+  }
+
+  int minutesUntil(DateTime targetDate) {
+    final now = DateTime.now();
+    final difference = targetDate.difference(now);
+    return difference.inMinutes;
   }
 
 }
