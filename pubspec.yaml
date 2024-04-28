@@ -51,6 +51,7 @@ dependencies:
   maps_launcher: ^2.2.1
   workmanager: ^0.5.2
   pie_chart: ^5.4.0
+  camera: ^0.10.5+9
 #  android_alarm_manager: ^2.0.2
 
 dev_dependencies:
@@ -72,6 +73,9 @@ dev_dependencies:
   app_settings: ^5.1.1
   flutter_local_notifications: ^17.0.0
   keyboard_hider: ^1.0.0
+  flutter_timer_countdown: ^1.0.7
+  pie_chart: ^5.4.0
+  tflite:
 
 
 # For information on the generic Dart part of this file, see the
@@ -90,6 +94,8 @@ flutter:
     - assets/
     - assets/syrup.png
     - assets/logo.png
+    - assets/cotentname/labels.txt
+    - assets/cotentname/model_unquant.tflite
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -1,4 +1,5 @@
 // import 'package:android_alarm_manager/android_alarm_manager.dart';
+import 'package:camera/camera.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:health_mate/Screens/spleshScreen.dart';
@@ -38,20 +39,19 @@ import 'package:timezone/data/latest.dart' as tz;
 // Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message)async {
 //   await Firebase.initializeApp();
 // }
-
+List<CameraDescription>? cameras;
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
-  // Workmanager().initialize(callbackDispatcher,);
-  // await AndroidAlarmManager.initialize();
+  cameras=await availableCameras();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
   tz.initializeTimeZones();
   await LocalNotifications.init();
-
   // FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
   runApp(const MyApp());
 }
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

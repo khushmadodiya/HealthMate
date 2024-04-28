@@ -12,6 +12,8 @@ import 'package:health_mate/resources/featchQuizQuestion.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:intl/intl.dart';
 
+import '../facial-model/image-model.dart';
+
 class HappinessJuiceScreen extends StatefulWidget {
   const HappinessJuiceScreen({super.key});
 
@@ -82,7 +84,7 @@ class _HappinessJuiceScreenState extends State<HappinessJuiceScreen> {
               ),
               SizedBox(height: 20,),
               Container(
-                height: MediaQuery.of(context).size.height/2.5,
+                // height: MediaQuery.of(context).size.height/2.5,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
                   color: Colors.deepPurple.shade100,
@@ -108,7 +110,11 @@ class _HappinessJuiceScreenState extends State<HappinessJuiceScreen> {
           ),
         ),
       ),
-
+      floatingActionButton: FloatingActionButton(onPressed: (){
+        Navigator.push(context, MaterialPageRoute(builder: (context)=>MyModelImage()));
+      },
+        child: Icon(Icons.add_a_photo),
+      ),
     );
   }
 

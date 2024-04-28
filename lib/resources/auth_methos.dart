@@ -81,4 +81,15 @@ class AuthMethods{
 
 
   }
+  Future<String> getname()async{
+    String res= 'error';
+    try{
+   DocumentSnapshot snap = await FirebaseFirestore.instance.collection('admin').doc(FirebaseAuth.instance.currentUser!.uid).get();
+   return snap['username'].toString();
+    }
+    catch(e){
+      return res;
+    }
+   
+  }
 }

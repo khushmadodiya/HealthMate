@@ -57,8 +57,7 @@ class FirestoreMethos {
     }
     return res;
   }
-
-  Future<String> addquestion(
+   Future<String> addquestion(
       {required String question,
         required String option1,
         required String option2,

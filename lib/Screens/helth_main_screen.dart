@@ -1,7 +1,9 @@
 import 'dart:convert';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:health_mate/Screens/chatbot.dart';
 import 'package:health_mate/Screens/happiness_juice_screen.dart';
@@ -16,6 +18,8 @@ import '../Notification Services/notifications.dart';
 import '../provider/provider.dart';
 import 'package:http/http.dart' as http;
 import 'package:android_intent/android_intent.dart';
+
+import '../video-calling/all-slot.dart';
 
 class HealthMainScreen extends StatefulWidget {
   final id;
@@ -46,7 +50,7 @@ class _HealthMainScreenState extends State<HealthMainScreen> with SingleTickerPr
     //   }
     // });
     _tabController = TabController(
-      length: 4,
+      length: 5,
       vsync: this,
     );
     fetchDetail();
@@ -100,31 +104,20 @@ class _HealthMainScreenState extends State<HealthMainScreen> with SingleTickerPr
                 indicatorColor: Colors.deepPurple,
                 tabs: [
                   Tab(
-                    child: Center(
-                      child: Text(
-                        'Happiness Juice',style: TextStyle(fontSize: 12,fontWeight: FontWeight.bold),
-                      ),
-                    ),
+                   icon: Icon(Icons.person),
                   ),
                   Tab(
-                    child: Center(
-                      child: Text(
-                        'Health Notifier',
-                        style: TextStyle(
-                          fontSize: 12,fontWeight: FontWeight.bold
-                        ),
-                      ),
-                    ),
+                    icon: Icon(Icons.video_call),
                   ),
-                  Tab(
-                    child: Center(
-                      child: Text(
-                        'MedBot',
-                        style: TextStyle(fontSize: 12,fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                  ),
-                  Tab(child: Center(child: Text('Emergency',style: TextStyle(fontSize: 11,fontWeight: FontWeight.bold),)),),
+                  // Tab(
+                  //   icon: Icon(Icons.bolt),
+                  // ),
+                  // Tab(
+                  //   icon: Icon(Icons.notification_add_outlined),
+                  // ),
+                  // Tab(
+                  //   icon: Icon(Icons.emergency),
+                  // ),
                   // Tab(text: 'Tab 3'),
                 ],
               ),
@@ -132,10 +125,12 @@ class _HealthMainScreenState extends State<HealthMainScreen> with SingleTickerPr
             body: TabBarView(
               controller: _tabController,
               children: [
-                HappinessJuiceScreen(),
-                HealthNotifierScreen(),
-                Chatbot(),
-                Emergency()
+                Expanded(child: HappinessJuiceScreen()),
+                // BookSlot(),
+                Text('bookslot'),
+                // Expanded(child: Chatbot()),
+                // Expanded(child: HealthNotifierScreen()),
+                // Expanded(child: Emergency())
               ],
             ),
           );
