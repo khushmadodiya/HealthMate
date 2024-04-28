@@ -203,9 +203,9 @@ class _EmergencyState extends State<Emergency> {
                   child: Row(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
                         child: Text(
-                          'Women Helpline -(Domestic Abuse)  ',
+                          'Women Helpline-(Domestic Abuse)  ',
                           style: TextStyle(fontSize: 16),
                         ),
                       ),

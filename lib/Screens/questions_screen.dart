@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:health_mate/Screens/happiness_juice_screen.dart';
+import 'package:health_mate/Screens/helth_main_screen.dart';
+import 'package:health_mate/resources/firestore_methods.dart';
 
 import '../Widgets/question_widget.dart';
 class QuestionS extends StatefulWidget {
-  const QuestionS({super.key});
+  final List<Map<String, String>> queslist;
+  const QuestionS({super.key, required this.queslist});
 
   @override
   State<QuestionS> createState() => _QuestionSState();
@@ -22,18 +27,10 @@ class _QuestionSState extends State<QuestionS> {
         padding: Width > 600
             ? EdgeInsets.symmetric(horizontal: Width / 2.9)
             : const EdgeInsets.symmetric(horizontal: 5),
-        child: StreamBuilder(
-          stream: FirebaseFirestore.instance.collection('khush').snapshots(),
-          builder: (BuildContext context, AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>> snapshot) {
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
-            }
-           return ListView.builder(
-                itemCount: snapshot.data!.docs.length + 1,
+        child:ListView.builder(
+                itemCount: widget.queslist.length+1,
                 itemBuilder: (context, index) {
-                  return index == snapshot.data!.docs.length
+                  return index == widget.queslist.length
                       ? Container(
                       margin: EdgeInsets.symmetric(
                         horizontal: Width > 600 ? Width * 0.3 : 30,
@@ -41,17 +38,23 @@ class _QuestionSState extends State<QuestionS> {
                       ),
                       width: double.infinity,
                       child: FilledButton(onPressed:(){
-                        // _submit(snapshot.data!.docs.length.toString());
+                        _submit();
                         }, child: Text('Submit'))
                   )
                       : QuestionWidget(
-                    snap: snapshot.data!.docs[index].data(),
+                    snap: widget.queslist[index],
                     index: index + 1,
                   );
-                });
-          },
-        ),
-      ),
+                })
+    )
+
+
     );
+  }
+
+  void _submit() async{
+   var res = await FirestoreMethos().submitQuestion();
+   Fluttertoast.showToast(msg: res);
+   Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>HealthMainScreen()));
   }
 }

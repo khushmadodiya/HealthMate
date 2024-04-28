@@ -118,32 +118,32 @@ class _AddPillsState extends State<AddPills> {
             child: Column(
                      mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Stack(
-                  children: [
-                    _image != null
-                        ? CircleAvatar(
-                      radius: 64,
-                      backgroundImage: MemoryImage(_image!),
-                      backgroundColor: Colors.white12,
-                    )
-                        : const CircleAvatar(
-                      radius: 64,
-                      backgroundImage:AssetImage('assets/capsul.png',),
-                      backgroundColor: Colors.white12,
-                    ),
-                    Positioned(
-                      bottom: -12,
-                      left: 90,
-                      child: IconButton(
-                        onPressed: selectImage,
-                        icon: const Icon(Icons.add_a_photo),
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 10,
-                ),
+                // Stack(
+                //   children: [
+                //     _image != null
+                //         ? CircleAvatar(
+                //       radius: 64,
+                //       backgroundImage: MemoryImage(_image!),
+                //       backgroundColor: Colors.white12,
+                //     )
+                //         : const CircleAvatar(
+                //       radius: 64,
+                //       backgroundImage:AssetImage('assets/capsul.png',),
+                //       backgroundColor: Colors.white12,
+                //     ),
+                //     Positioned(
+                //       bottom: -12,
+                //       left: 90,
+                //       child: IconButton(
+                //         onPressed: selectImage,
+                //         icon: const Icon(Icons.add_a_photo),
+                //       ),
+                //     ),
+                //   ],
+                // ),
+                // SizedBox(
+                //   height: 10,
+                // ),
                 TextField(
                   controller: pillnamecontroller,
                   decoration: InputDecoration(
@@ -328,7 +328,7 @@ class _AddPillsState extends State<AddPills> {
                   ],
                 ),
                 SizedBox(
-                  height: 10,
+                  height: 40,
                 ),
                 InkWell(
                   onTap: ()async{
@@ -345,7 +345,6 @@ class _AddPillsState extends State<AddPills> {
                         enddate: enddatecontroller.text,
                         timming: selectedTimming,
                         isimage:isimage,
-                        file:_image!,
                         notificationuid: uid,
                       );
 

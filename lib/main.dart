@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:health_mate/Screens/spleshScreen.dart';
 import 'package:health_mate/admin/add.dart';
 import 'package:health_mate/provider/provider.dart';
+import 'package:health_mate/resources/featchQuizQuestion.dart';
 import 'package:provider/provider.dart';
 import 'package:workmanager/workmanager.dart';
 import 'Notification Services/notifications.dart';
@@ -47,6 +48,7 @@ void main() async{
   );
   tz.initializeTimeZones();
   await LocalNotifications.init();
+
   // FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
   runApp(const MyApp());
 }

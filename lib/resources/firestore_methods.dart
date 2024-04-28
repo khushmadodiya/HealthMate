@@ -79,7 +79,7 @@ class FirestoreMethos {
         'option2': option2,
         'option3': option3,
         'option4': option4,
-        'ans': rightans
+        // 'ans': rightans
         // 'quesuid': uid
       }).onError((error, stackTrace) => res = 'some error occure $error');
       res = 'success';
@@ -91,5 +91,49 @@ class FirestoreMethos {
     return res;
 
   }
+  Future<String> updateans({
+    required String uid,
+    required int ans,
+  }) async {
+    String res = 'erro occured';
+    try{
+      var uuid = Uuid().v1().substring(0,6);
+      await FirebaseFirestore.instance.collection('admin')
+          .doc(FirebaseAuth.instance.currentUser!.uid).collection('happiness').doc( DateFormat('dd-MM-yyyy').format(DateTime.now()).toString()).collection('questions').doc(uid)
+          .set({
+        'quesdocid': uid,
+        'ans':ans,
+          }).catchError((er) {
+        res = 'error $er';
+      });
+      res = 'success';
+      return res;
+    }
+    catch(e){
+      res = 'error occured $e';
+    }
+    return res;
+  }
+
+  Future<String> submitQuestion() async {
+    String res = 'erro occured';
+    try{
+
+      await FirebaseFirestore.instance.collection('admin')
+          .doc(FirebaseAuth.instance.currentUser!.uid).collection('happiness').doc( DateFormat('dd-MM-yyyy').format(DateTime.now()).toString())
+          .set({
+        'status': true,
+      }).catchError((er) {
+        res = 'error $er';
+      });
+      res = 'success';
+      return res;
+    }
+    catch(e){
+      res = 'error occured $e';
+    }
+    return res;
+  }
+
 
 }

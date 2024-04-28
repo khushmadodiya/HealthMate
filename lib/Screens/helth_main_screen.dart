@@ -100,25 +100,31 @@ class _HealthMainScreenState extends State<HealthMainScreen> with SingleTickerPr
                 indicatorColor: Colors.deepPurple,
                 tabs: [
                   Tab(
-                    child: Text(
-                      'Happiness Juice',style: TextStyle(fontSize: 12,fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                  Tab(
-                    child: Text(
-                      'Health Notifier',
-                      style: TextStyle(
-                        fontSize: 12,fontWeight: FontWeight.bold
+                    child: Center(
+                      child: Text(
+                        'Happiness Juice',style: TextStyle(fontSize: 12,fontWeight: FontWeight.bold),
                       ),
                     ),
                   ),
                   Tab(
-                    child: Text(
-                      'MedBot',
-                      style: TextStyle(fontSize: 12,fontWeight: FontWeight.bold),
+                    child: Center(
+                      child: Text(
+                        'Health Notifier',
+                        style: TextStyle(
+                          fontSize: 12,fontWeight: FontWeight.bold
+                        ),
+                      ),
                     ),
                   ),
-                  Tab(child: Text('Emergency',style: TextStyle(fontSize: 12,fontWeight: FontWeight.bold),),),
+                  Tab(
+                    child: Center(
+                      child: Text(
+                        'MedBot',
+                        style: TextStyle(fontSize: 12,fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ),
+                  Tab(child: Center(child: Text('Emergency',style: TextStyle(fontSize: 11,fontWeight: FontWeight.bold),)),),
                   // Tab(text: 'Tab 3'),
                 ],
               ),
