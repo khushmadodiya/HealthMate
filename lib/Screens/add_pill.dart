@@ -104,7 +104,7 @@ class _AddPillsState extends State<AddPills> {
           style: TextStyle(
               fontWeight: FontWeight.w600, fontSize: 20, color: Colors.white),
         ),
-        backgroundColor: Colors.deepPurple,
+        backgroundColor: deepColor,
       ),
       body: Center(
         child: Container(
@@ -187,7 +187,7 @@ class _AddPillsState extends State<AddPills> {
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10),
                                   color: ispill
-                                      ? Colors.deepPurple
+                                      ? deepColor
                                       : Colors.grey[200]),
                               child: Image.asset('assets/pill.png'),
                             ),
@@ -227,7 +227,7 @@ class _AddPillsState extends State<AddPills> {
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10),
                                   color: !ispill
-                                      ? Colors.deepPurple
+                                      ? deepColor
                                       : Colors.grey[200]),
                               child: Image.asset('assets/syrup.png'),
                             ),
@@ -398,7 +398,7 @@ class _AddPillsState extends State<AddPills> {
                     height: 40,
                     width: double.infinity,
                     decoration: BoxDecoration(
-                        color: Colors.deepPurple,
+                        color: deepColor,
                       borderRadius: BorderRadius.circular(20)
                     ),
                     child: Center(child: issubmit ? CircularProgressIndicator(color: Colors.white,):Text('Add Medicine',style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.w600),)),

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:dialog_flowtter/dialog_flowtter.dart';
 import 'package:health_mate/Screens/webview.dart';
+import 'package:health_mate/globle.dart';
 
 import 'MessagesScreen.dart';
 import 'package:keyboard_hider/keyboard_hider.dart';
@@ -80,7 +81,7 @@ class _ChatbotState extends State<Chatbot> {
                         width: 45,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(22.5),
-                          color: Colors.deepPurple
+                          color: deepColor
                         ),
                         child: Center(child: Icon(Icons.send,color: Colors.white,))
                       ),

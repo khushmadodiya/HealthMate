@@ -12,6 +12,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:health_mate/Screens/httpresponse.dart';
 import 'package:health_mate/Screens/nearbyservices.dart';
 import 'package:health_mate/Screens/profile_screen.dart';
+import 'package:health_mate/globle.dart';
 import 'package:provider/provider.dart';
 import '../Notification Services/notification_services.dart';
 import '../Notification Services/notifications.dart';
@@ -62,12 +63,12 @@ class _HealthMainScreenState extends State<HealthMainScreen> with SingleTickerPr
         ? Scaffold(
             body: Center(
                 child: CircularProgressIndicator(
-              color: Colors.deepPurple,
+              color: deepColor,
             )),
           )
         : Scaffold(
             appBar: AppBar(
-              backgroundColor: Colors.deepPurple,
+              backgroundColor: deepColor,
               title: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 13.0),
                 child: Text(
@@ -101,7 +102,7 @@ class _HealthMainScreenState extends State<HealthMainScreen> with SingleTickerPr
                 labelColor: Colors.white,
                 dividerColor: Colors.white,
                 unselectedLabelColor: Colors.grey[400],
-                indicatorColor: Colors.deepPurple,
+                indicatorColor: deepColor,
                 tabs: [
                   Tab(
                    icon: Icon(Icons.person),
@@ -109,15 +110,15 @@ class _HealthMainScreenState extends State<HealthMainScreen> with SingleTickerPr
                   Tab(
                     icon: Icon(Icons.video_call),
                   ),
-                  // Tab(
-                  //   icon: Icon(Icons.bolt),
-                  // ),
-                  // Tab(
-                  //   icon: Icon(Icons.notification_add_outlined),
-                  // ),
-                  // Tab(
-                  //   icon: Icon(Icons.emergency),
-                  // ),
+                  Tab(
+                    icon: Icon(Icons.bolt),
+                  ),
+                  Tab(
+                    icon: Icon(Icons.notification_add_outlined),
+                  ),
+                  Tab(
+                    icon: Icon(Icons.emergency),
+                  ),
                   // Tab(text: 'Tab 3'),
                 ],
               ),
@@ -125,12 +126,12 @@ class _HealthMainScreenState extends State<HealthMainScreen> with SingleTickerPr
             body: TabBarView(
               controller: _tabController,
               children: [
-                Expanded(child: HappinessJuiceScreen()),
-                // BookSlot(),
-                Text('bookslot'),
-                // Expanded(child: Chatbot()),
-                // Expanded(child: HealthNotifierScreen()),
-                // Expanded(child: Emergency())
+                HappinessJuiceScreen(),
+                BookSlot(),
+                // Text('bookslot'),
+                Chatbot(),
+                HealthNotifierScreen(),
+                Emergency()
               ],
             ),
           );

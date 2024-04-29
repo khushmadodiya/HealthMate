@@ -5,6 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:health_mate/globle.dart';
 import 'package:health_mate/resources/firestore_methods.dart';
 import '../Notification Services/notifications.dart';
 import 'add_pill.dart';
@@ -81,7 +82,7 @@ class _HealthNotifierScreenState extends State<HealthNotifierScreen> {
                                       width: 80,
                                       decoration: BoxDecoration(
                                           borderRadius: BorderRadius.circular(10),
-                                          color: Colors.deepPurple.shade50),
+                                          color: lightColor),
                                       child: snapshot.data!.docs[index]
                                                   .data()['pillimage'] !=
                                               null
@@ -222,7 +223,7 @@ class _HealthNotifierScreenState extends State<HealthNotifierScreen> {
             Icons.add,
             color: Colors.white,
           ),
-          backgroundColor: Colors.deepPurple,
+          backgroundColor: deepColor,
           onPressed: () {
             // AppSettings.openAppSettings(type: AppSettingsType.device);
       

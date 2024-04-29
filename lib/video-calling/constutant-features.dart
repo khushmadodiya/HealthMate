@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_final_fields
 
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:health_mate/resources/add-appointmental.dart';
@@ -37,6 +39,7 @@ class _ConsultantInformationState extends State<ConsultantInformation>
   void initState() {
     super.initState();
     getData();
+    Timer.periodic(Duration(seconds: 2), (timer) { getData();});
     _tabController = TabController(length: 2, vsync: this);
   }
   void getData()async{

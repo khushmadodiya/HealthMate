@@ -1,5 +1,7 @@
 
 
+import 'dart:ui';
+
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_timer_countdown/flutter_timer_countdown.dart';
@@ -120,14 +122,18 @@ class _MyModelImageState extends State<MyModelImage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: InkWell(child: const Text("Ml Project"),onTap:(){Navigator.pop(context);},),
+        title: InkWell(child: const Text("Facial Analysis",style:TextStyle(fontWeight:FontWeight.bold),),onTap:(){Navigator.pop(context);},),
+        // Color deepColor = Colors.deepPurple/.shade300;
+      backgroundColor:Colors.deepPurple.shade300,
+        toolbarHeight:70,
       ),
       body: SingleChildScrollView(
         scrollDirection:Axis.vertical,
         child: Column(
           
           children: [
-            const Text("Check Result will become active after one minitue",style:TextStyle(fontWeight:FontWeight.bold,fontSize:18),),
+            const Center(child:Text("Check Result will become active",style:TextStyle(fontWeight:FontWeight.bold,fontSize:18),)),
+            const Center(child:Text("after one minitue",style:TextStyle(fontWeight:FontWeight.bold,fontSize:18),)),
             TimerCountdown(
           format: CountDownTimerFormat.daysHoursMinutesSeconds,
           endTime: DateTime.now().add(
@@ -149,7 +155,7 @@ class _MyModelImageState extends State<MyModelImage> {
             Padding(
               padding: const EdgeInsets.all(20),
               child: SizedBox(
-                height: MediaQuery.of(context).size.height * 0.7,
+                height: MediaQuery.of(context).size.height * 0.5,
                 width: MediaQuery.of(context).size.width,
                 child: cameraController != null && cameraController!.value.isInitialized
                     ? AspectRatio(

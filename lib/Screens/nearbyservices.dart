@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:health_mate/Widgets/cust_icon.dart';
+import 'package:health_mate/globle.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:maps_launcher/maps_launcher.dart';
 import 'package:keyboard_hider/keyboard_hider.dart';
@@ -49,7 +50,7 @@ class _EmergencyState extends State<Emergency> {
                   // height: 50,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
-                      color: Colors.deepPurple.shade50),
+                      color: lightColor),
                   child: Row(
                     children: [
                       Padding(
@@ -79,7 +80,7 @@ class _EmergencyState extends State<Emergency> {
                   // height: 50,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
-                      color: Colors.deepPurple.shade50),
+                      color: lightColor),
                   child: Row(
                     children: [
                       Padding(
@@ -109,7 +110,7 @@ class _EmergencyState extends State<Emergency> {
                   // height: 50,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
-                      color: Colors.deepPurple.shade50),
+                      color: lightColor),
                   child: Row(
                     children: [
                       Padding(
@@ -139,7 +140,7 @@ class _EmergencyState extends State<Emergency> {
                   // height: 50,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
-                      color: Colors.deepPurple.shade50),
+                      color: lightColor),
                   child: Row(
                     children: [
                       Padding(
@@ -169,7 +170,7 @@ class _EmergencyState extends State<Emergency> {
                   // height: 50,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
-                      color: Colors.deepPurple.shade50),
+                      color: lightColor),
                   child: Row(
                     children: [
                       Padding(
@@ -199,7 +200,7 @@ class _EmergencyState extends State<Emergency> {
                   // height: 50,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
-                      color: Colors.deepPurple.shade50),
+                      color: lightColor),
                   child: Row(
                     children: [
                       Padding(
@@ -229,7 +230,7 @@ class _EmergencyState extends State<Emergency> {
                   // height: 50,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
-                      color: Colors.deepPurple.shade50),
+                      color:lightColor),
                   child: Row(
                     children: [
                       Padding(
@@ -259,7 +260,7 @@ class _EmergencyState extends State<Emergency> {
                   // height: 50,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
-                      color: Colors.deepPurple.shade50),
+                      color: lightColor),
                   child: Row(
                     children: [
                       Padding(
@@ -289,7 +290,7 @@ class _EmergencyState extends State<Emergency> {
                   // height: 50,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
-                      color: Colors.deepPurple.shade50),
+                      color: lightColor),
                   child: Row(
                     children: [
                       Padding(

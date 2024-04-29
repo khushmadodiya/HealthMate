@@ -18,7 +18,7 @@ class FetchQuizQuestion {
         int month=int.parse(doc.id.substring(3,5));
         int year=int.parse(doc.id.substring(6,10));
 
-        if (year == today.year && month == today.month && day == today.day) {
+        if (year == today.year && month == today.month && day+1 == today.day) {
           Map<String, dynamic>? data = doc.data() as Map<String, dynamic>?;
          // print("here di[us        snjnjsnjnsjns]    ${data.toString()}");
          print(doc.id);
@@ -66,7 +66,7 @@ class FetchQuizQuestion {
         int month=int.parse(doc.id.substring(3,5));
         int year=int.parse(doc.id.substring(6,10));
 
-        if (year == today.year && month == today.month && day == today.day && filetername=='day') {
+        if (year == today.year && month == today.month && day+1 == today.day ) {
           Map<String, dynamic>? data = doc.data() as Map<String, dynamic>?;
          // print("here di[us        snjnjsnjnsjns]    ${data.toString()}");
          print(doc.id);

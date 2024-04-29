@@ -5,7 +5,7 @@ import 'dart:math' as math;
 
 // ignore: must_be_immutable
 class PiChart extends StatefulWidget {
-  final List<Map<String, String>> ans;
+  final List<double> ans;
   PiChart({super.key, required this.ans,});
 
   @override
@@ -13,26 +13,17 @@ class PiChart extends StatefulWidget {
 }
 
 class _PiChartState extends State<PiChart> {
-  double ans1=0.0;
-  double ans2=0.0;
-  double ans3=0.0;
-  double ans4=0.0;
-  double ans5=0.0;
   _PiChartState();
 
   dynamic dataMap;
   @override
   void initState() {
     super.initState();
-    ans1 =double.parse(widget.ans[0]['ans1']!)+double.parse(widget.ans[1]['ans1']!)+double.parse(widget.ans[2]['ans1']!)+double.parse(widget.ans[3]['ans1']!)+double.parse(widget.ans[4]['ans1']!);
-    ans2 =double.parse(widget.ans[0]['ans2']!)+double.parse(widget.ans[1]['ans2']!)+double.parse(widget.ans[2]['ans2']!)+double.parse(widget.ans[3]['ans2']!)+double.parse(widget.ans[4]['ans2']!);
-    ans3 =double.parse(widget.ans[0]['ans3']!)+double.parse(widget.ans[1]['ans3']!)+double.parse(widget.ans[2]['ans3']!)+double.parse(widget.ans[3]['ans3']!)+double.parse(widget.ans[4]['ans3']!);
-    ans4 =double.parse(widget.ans[0]['ans4']!)+double.parse(widget.ans[1]['ans4']!)+double.parse(widget.ans[2]['ans4']!)+double.parse(widget.ans[3]['ans4']!)+double.parse(widget.ans[4 ]['ans4']!);
     dataMap = {
-      "excellent":ans1,
-      "Good": ans2,
-      "Normal": ans3,
-      "Bad":ans4
+      "excellent":widget.ans[0],
+      "Good": widget.ans[1],
+      "Normal": widget.ans[2],
+      "Bad":widget.ans[3]
     };
   }
 
@@ -50,10 +41,10 @@ class _PiChartState extends State<PiChart> {
   // }
 
   final colorList = <Color>[
-    Color(0xff0984e3), // Blue color
-    Color(0xffc03f14), // Dark blue color
-    Color(0xffc9cc5f), // Darker blue color
-    Color(0xff942db2),
+    Color(0xff49d232), // Blue color
+    Color(0xff0323ff), // Dark blue color
+    Color(0xffeaf500), // Darker blue color
+    Color(0xffff3f00),
   ];
 
   final gradientList = <List<Color>>[

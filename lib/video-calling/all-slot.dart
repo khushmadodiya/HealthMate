@@ -1,6 +1,10 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:health_mate/Screens/webviewformeet.dart';
 import 'package:health_mate/resources/add-appointmental.dart';
 import 'package:health_mate/resources/featch-appointment-details.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class BookSlot extends StatefulWidget {
  const BookSlot({Key? key}) : super(key: key);
@@ -23,6 +27,8 @@ class _BookSlotState extends State<BookSlot>with SingleTickerProviderStateMixin 
     super.initState();
     _tabController = TabController(length: 2, vsync: this);
     getData();
+    Timer.periodic(Duration(seconds: 2), (timer) { getData();});
+
  }
   @override
   void dispose() {
@@ -47,13 +53,13 @@ class _BookSlotState extends State<BookSlot>with SingleTickerProviderStateMixin 
  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Consultant Information'),
-        
+        title: const Center( child:Text('Book Your Appointment',style:TextStyle(fontWeight:FontWeight.w700),)),
+        centerTitle:true,
         bottom: TabBar(
           controller: _tabController,
           tabs: const [
-            Tab(text: 'Appointment Info'),
-            Tab(text: 'Requested Appointments'),
+            Tab(text: 'Appointments'),
+            Tab(text: 'Request Status'),
           ],
         ),
       ),
@@ -72,7 +78,7 @@ class _BookSlotState extends State<BookSlot>with SingleTickerProviderStateMixin 
                 itemBuilder: (BuildContext context, int index) {
                   var details = reuqestAppointment![index];
                   return Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(4.0),
                     child: Container(
                       height:120,
                       width:MediaQuery.of(context).size.width*0.9,
@@ -82,13 +88,22 @@ class _BookSlotState extends State<BookSlot>with SingleTickerProviderStateMixin 
                         crossAxisAlignment:CrossAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.all(3.0),
                             child: Text("AppointMent Time : ${details["time"]}",style:const TextStyle(fontWeight:FontWeight.bold,fontStyle:FontStyle.normal,fontSize:20),),
                           ),
                           
                           int.parse(details["status"])==1?Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: Text("Join Url: ${details["gmeeturl"]}",style:const TextStyle(fontWeight:FontWeight.bold,fontStyle:FontStyle.italic,fontSize:20)),
+                            child: InkWell(
+                              onTap: ()async{
+                                if (await canLaunch('https://meet.google.com/gun-vith-kdk?authuser=0')) {
+                                await launch('https://meet.google.com/gun-vith-kdk?authuser=0');
+                                } else {
+                                throw 'Could not launch https://meet.google.com/gun-vith-kdk?authuser=0';
+                                }
+                                // Navigator.push(context, MaterialPageRoute(builder: (context)=>MeetWeb(url: details['gmeeturl'],)));
+                              },
+                                child: Text("Join Url: ${details["gmeeturl"]}",style:const TextStyle(color:Colors.deepPurple,fontWeight:FontWeight.bold,fontStyle:FontStyle.italic,fontSize:20))),
                           ):const Padding(
                             padding:  EdgeInsets.all(8.0),
                             child: Expanded(child: Text("Google Meet url is not present because your request is not accepted",style: TextStyle(fontWeight:FontWeight.bold,fontStyle:FontStyle.italic,fontSize:16))),

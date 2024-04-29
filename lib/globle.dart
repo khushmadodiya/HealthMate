@@ -1,4 +1,8 @@
 
+import 'dart:ui';
+
+import 'package:flutter/material.dart';
+
 String value1 = 'Half unit';
 String value2 = '1 Unit';
 String value3 = '2 Unit';
@@ -16,3 +20,5 @@ String selectedpill = value2;
 String selectedsyrup = value5;
 String selectedTimming = am;
 String selectedfilter = value8;
+Color deepColor = Colors.deepPurple.shade300;
+Color lightColor = Colors.deepPurple.shade50;

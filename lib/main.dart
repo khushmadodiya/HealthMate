@@ -4,6 +4,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:health_mate/Screens/spleshScreen.dart';
 import 'package:health_mate/admin/add.dart';
+import 'package:health_mate/globle.dart';
 import 'package:health_mate/provider/provider.dart';
 import 'package:health_mate/resources/featchQuizQuestion.dart';
 import 'package:provider/provider.dart';
@@ -64,7 +65,11 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
+          // colorScheme: ColorScheme.dark(),
          primarySwatch: Colors.deepPurple,
+          buttonTheme: ButtonThemeData(
+            buttonColor: deepColor,
+          ),
           inputDecorationTheme: InputDecorationTheme(
             focusedBorder: OutlineInputBorder(
                 borderSide: BorderSide(color: Colors.deepPurple,width: 1.5),
@@ -82,7 +87,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
 
-        home:SpleshScreen(),
+        home:const SpleshScreen(),
 
       ),
     );

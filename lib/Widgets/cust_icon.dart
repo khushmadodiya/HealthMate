@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:health_mate/globle.dart';
 
 class CustIcon extends StatefulWidget {
   final name;
@@ -29,7 +30,7 @@ class _CustIconState extends State<CustIcon> {
           height: 80,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
-              color: Colors.deepPurple.shade50
+              color: lightColor
           ),
           child: Center(
             child: Column(

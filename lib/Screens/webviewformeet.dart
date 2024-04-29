@@ -8,15 +8,16 @@ import 'package:url_launcher/url_launcher.dart';
 
 
 
-class BotWeb extends StatefulWidget {
+class MeetWeb extends StatefulWidget {
+  final String url;
 
-  const BotWeb({super.key,});
+  const MeetWeb({super.key, required this.url,});
 
   @override
-  State<BotWeb> createState() => _BotWebState();
+  State<MeetWeb> createState() => _MeetWebState();
 }
 
-class _BotWebState extends State<BotWeb> {
+class _MeetWebState extends State<MeetWeb> {
   double _progress = 0;
   late InAppWebViewController  inAppWebViewController;
 
@@ -37,14 +38,15 @@ class _BotWebState extends State<BotWeb> {
       child: Scaffold(
 
         appBar: AppBar(
-          title: Text("MedBot",style: TextStyle(color: Colors.white,fontSize: 20),),
+          title: Text("Live consultant",style: TextStyle(color: Colors.white,fontSize: 20),),
           backgroundColor: deepColor,
         ),
         body: Stack(
           children: [
             InAppWebView(
               initialUrlRequest: URLRequest(
-                  url: Uri.parse('https://mediafiles.botpress.cloud/a7fce267-a0d3-4b0e-8bbe-a3283662bb4e/webchat/bot.html')
+                  url: Uri.parse('https://meet.google.com/gun-vith-kdk?authuser=0')
+                  // url: Uri.parse(widget.url)
               ),
               onWebViewCreated: (InAppWebViewController controller){
                 inAppWebViewController = controller;
