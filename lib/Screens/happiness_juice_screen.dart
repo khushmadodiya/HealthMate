@@ -14,6 +14,7 @@ import 'package:health_mate/globle.dart';
 import 'package:health_mate/resources/featchQuizQuestion.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:intl/intl.dart';
+import 'package:keyboard_hider/keyboard_hider.dart';
 
 import '../facial-model/image-model.dart';
 
@@ -44,6 +45,7 @@ class _HappinessJuiceScreenState extends State<HappinessJuiceScreen> {
     // TODO: implement initState
     super.initState();
     // getstatus();
+    hideTextInput();
     Timer(Duration(seconds: 3),(){ getmarks();});
     setState(() {
 

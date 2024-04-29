@@ -52,6 +52,7 @@ dependencies:
   workmanager: ^0.5.2
   pie_chart: ^5.4.0
   camera: ^0.10.5+9
+  keyboard_hider: ^1.0.0
 #  android_alarm_manager: ^2.0.2
 
 dev_dependencies:
