@@ -98,7 +98,11 @@ class FirestoreMethos {
     try{
       var uuid = Uuid().v1().substring(0,6);
       await FirebaseFirestore.instance.collection('admin')
-          .doc(FirebaseAuth.instance.currentUser!.uid).collection('happiness').doc( DateFormat('dd-MM-yyyy').format(DateTime.now()).toString()).collection('questions').doc(uid)
+          .doc(FirebaseAuth.instance.currentUser!.uid).collection('happiness').
+      // doc( DateFormat('dd-MM-yyyy').format(DateTime.now()).toString())
+      doc('05-05-2024')
+          .collection('questions')
+          .doc(uid)
           .set({
         'quesdocid': uid,
         'ans':ans,

@@ -136,15 +136,15 @@ class NotificationServices {
         android: androidNotificationDetails,
         iOS: darwinNotificationDetails
     );
-    // await _flutterLocalNotificationsPlugin.zonedSchedule(
-    //   0,
-    //   message.notification!.title.toString(),
-    //   message.notification!.body.toString(),
-    //   tz.TZDateTime.now(tz.local).add(const Duration(minutes: 2)),
-    //   notificationDetails,
-    //   androidAllowWhileIdle: true,
-    //   uiLocalNotificationDateInterpretation: UILocalNotificationDateInterpretation.absoluteTime,
-    // );
+    await _flutterLocalNotificationsPlugin.zonedSchedule(
+      0,
+      message.notification!.title.toString(),
+      message.notification!.body.toString(),
+      tz.TZDateTime.now(tz.local).add(const Duration(minutes: 2)),
+      notificationDetails,
+      androidAllowWhileIdle: true,
+      uiLocalNotificationDateInterpretation: UILocalNotificationDateInterpretation.absoluteTime,
+    );
     Future.delayed(Duration.zero , (){
       _flutterLocalNotificationsPlugin.show(
         0,

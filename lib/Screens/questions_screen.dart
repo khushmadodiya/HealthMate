@@ -24,16 +24,14 @@ class _QuestionSState extends State<QuestionS> {
         title: Text('Questions',style: TextStyle(color: Colors.white),),
       ),
       body: Container(
-        padding: Width > 600
-            ? EdgeInsets.symmetric(horizontal: Width / 2.9)
-            : const EdgeInsets.symmetric(horizontal: 5),
+
         child:ListView.builder(
                 itemCount: widget.queslist.length+1,
                 itemBuilder: (context, index) {
                   return index == widget.queslist.length
                       ? Container(
                       margin: EdgeInsets.symmetric(
-                        horizontal: Width > 600 ? Width * 0.3 : 30,
+                        horizontal: Width > 600 ? Width/3 : 30,
                         vertical: Width > 600 ? 15 : 10,
                       ),
                       width: double.infinity,

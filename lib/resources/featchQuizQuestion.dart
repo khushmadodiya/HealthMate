@@ -18,7 +18,7 @@ class FetchQuizQuestion {
         int month=int.parse(doc.id.substring(3,5));
         int year=int.parse(doc.id.substring(6,10));
 
-        if (year == today.year && month == today.month && day+1 == today.day) {
+        // if (year == today.year && month == today.month && day+1 == today.day) {
           Map<String, dynamic>? data = doc.data() as Map<String, dynamic>?;
          // print("here di[us        snjnjsnjnsjns]    ${data.toString()}");
          print(doc.id);
@@ -40,7 +40,7 @@ class FetchQuizQuestion {
           };
 
           questionsAndOptions.add(questionandOptions);
-        }
+        // }
 
       });
       return questionsAndOptions;
@@ -56,7 +56,11 @@ class FetchQuizQuestion {
 
     try {
       QuerySnapshot querySnapshot = await FirebaseFirestore.instance.collection('admin')
-          .doc(FirebaseAuth.instance.currentUser!.uid).collection('happiness').doc( DateFormat('dd-MM-yyyy').format(DateTime.now()).toString()).collection('questions').get();
+          .doc(FirebaseAuth.instance.currentUser!.uid).collection('happiness').
+      // doc( DateFormat('dd-MM-yyyy').format(DateTime.now()).toString())
+
+      doc('05-05-2024') .collection('questions').get();
+
       List<Map<String, String>> questionsAndOptions = [];
 
       querySnapshot.docs.forEach((doc) {
@@ -66,7 +70,7 @@ class FetchQuizQuestion {
         int month=int.parse(doc.id.substring(3,5));
         int year=int.parse(doc.id.substring(6,10));
 
-        if (year == today.year && month == today.month && day+1 == today.day ) {
+        // if (year == today.year && month == today.month && day+1 == today.day ) {
           Map<String, dynamic>? data = doc.data() as Map<String, dynamic>?;
          // print("here di[us        snjnjsnjnsjns]    ${data.toString()}");
          print(doc.id);
@@ -97,72 +101,72 @@ class FetchQuizQuestion {
           };
 
           questionsAndOptions.add(questionandOptions);
-        }
-        if (year == today.year && month == today.month && filetername=='month' ) {
-          Map<String, dynamic>? data = doc.data() as Map<String, dynamic>?;
-          // print("here di[us        snjnjsnjnsjns]    ${data.toString()}");
-          print(doc.id);
-          int count1 =0;
-          int count2 =0;
-          int count3 =0;
-          int count4 =0;
-          int ans = data!['ans'];
-          if(ans==1){
-            count1+=1;
-          }
-          if(ans==2){
-            count2+=1;
-          }
-          if(ans==3){
-            count3 +=1;
-          }
-          if(ans==4){
-            count4 +=1;
-          }
-
-          Map<String, String> questionandOptions = {
-            'docuid':doc.id,
-            'ans1': count1.toString(),
-            'ans2': count2.toString(),
-            'ans3': count3.toString(),
-            'ans4': count4.toString(),
-          };
-
-          questionsAndOptions.add(questionandOptions);
-        }
-        if (year == today.year && month == today.month && day == today.day && filetername=='week') {
-          Map<String, dynamic>? data = doc.data() as Map<String, dynamic>?;
-          // print("here di[us        snjnjsnjnsjns]    ${data.toString()}");
-          print(doc.id);
-          int count1 =0;
-          int count2 =0;
-          int count3 =0;
-          int count4 =0;
-          int ans = data!['ans'];
-          if(ans==1){
-            count1+=1;
-          }
-          if(ans==2){
-            count2+=1;
-          }
-          if(ans==3){
-            count3 +=1;
-          }
-          if(ans==4){
-            count4 +=1;
-          }
-
-          Map<String, String> questionandOptions = {
-            'docuid':doc.id,
-            'ans1': count1.toString(),
-            'ans2': count2.toString(),
-            'ans3': count3.toString(),
-            'ans4': count4.toString(),
-          };
-
-          questionsAndOptions.add(questionandOptions);
-        }
-       print(questionsAndOptions);
+        // }
+        // if (year == today.year && month == today.month && filetername=='month' ) {
+        //   Map<String, dynamic>? data = doc.data() as Map<String, dynamic>?;
+        //   // print("here di[us        snjnjsnjnsjns]    ${data.toString()}");
+        //   print(doc.id);
+        //   int count1 =0;
+        //   int count2 =0;
+        //   int count3 =0;
+        //   int count4 =0;
+        //   int ans = data!['ans'];
+        //   if(ans==1){
+        //     count1+=1;
+        //   }
+        //   if(ans==2){
+        //     count2+=1;
+        //   }
+        //   if(ans==3){
+        //     count3 +=1;
+        //   }
+        //   if(ans==4){
+        //     count4 +=1;
+        //   }
+        //
+        //   Map<String, String> questionandOptions = {
+        //     'docuid':doc.id,
+        //     'ans1': count1.toString(),
+        //     'ans2': count2.toString(),
+        //     'ans3': count3.toString(),
+        //     'ans4': count4.toString(),
+        //   };
+        //
+        //   questionsAndOptions.add(questionandOptions);
+        // }
+        // if (year == today.year && month == today.month && day == today.day && filetername=='week') {
+        //   Map<String, dynamic>? data = doc.data() as Map<String, dynamic>?;
+        //   // print("here di[us        snjnjsnjnsjns]    ${data.toString()}");
+        //   print(doc.id);
+        //   int count1 =0;
+        //   int count2 =0;
+        //   int count3 =0;
+        //   int count4 =0;
+        //   int ans = data!['ans'];
+        //   if(ans==1){
+        //     count1+=1;
+        //   }
+        //   if(ans==2){
+        //     count2+=1;
+        //   }
+        //   if(ans==3){
+        //     count3 +=1;
+        //   }
+        //   if(ans==4){
+        //     count4 +=1;
+        //   }
+        //
+        //   Map<String, String> questionandOptions = {
+        //     'docuid':doc.id,
+        //     'ans1': count1.toString(),
+        //     'ans2': count2.toString(),
+        //     'ans3': count3.toString(),
+        //     'ans4': count4.toString(),
+        //   };
+        //
+        //   questionsAndOptions.add(questionandOptions);
+        // }
+       // print(questionsAndOptions);
       });
       return questionsAndOptions;
     } catch (e) {

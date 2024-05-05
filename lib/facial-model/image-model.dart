@@ -184,11 +184,11 @@ class _MyModelImageState extends State<MyModelImage> {
                 if(i==0){
                   output="Good Mental Health";
                 }else if(i==1){
-                  output="Good Mental Health";
+                  output="Bad metal health";
                 }else if(i==2){
-                  output="Good Mental Health";
+                  output="Normal mental health";
                 }else{
-                  output="Good Mental Health";
+                  output="Random";
                 }
                 
                 Navigator.pop(context);
