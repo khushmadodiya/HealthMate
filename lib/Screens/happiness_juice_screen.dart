@@ -32,11 +32,11 @@ class _HappinessJuiceScreenState extends State<HappinessJuiceScreen> {
   List<double> pivalue=[0.0,0.0,0.0,0.0];
   double maxValue =0.0;
   Map<double,String> compmax={
-    1.0:'Congratulations!\n You\'re excelling in multiple areas of your well-being. Keep up the positive momentum and continue nurturing your social connections, personal fulfillment, and financial stability. Remember to celebrate your achievements and maintain the habits that contribute to your happiness and success.',
-    0.0:'Congratulations!\n You\'re excelling in multiple areas of your well-being. Keep up the positive momentum and continue nurturing your social connections, personal fulfillment, and financial stability. Remember to celebrate your achievements and maintain the habits that contribute to your happiness and success.',
+    4.0:'Congratulations!\n You\'re excelling in multiple areas of your well-being. Keep up the positive momentum and continue nurturing your social connections, personal fulfillment, and financial stability. Remember to celebrate your achievements and maintain the habits that contribute to your happiness and success.',
+    3.0:'Congratulations!\n You\'re excelling in multiple areas of your well-being. Keep up the positive momentum and continue nurturing your social connections, personal fulfillment, and financial stability. Remember to celebrate your achievements and maintain the habits that contribute to your happiness and success.',
     2.0:'Well done!\n You\'re doing great overall, but there\'s always room for growth. Continue to build upon your strengths and address any areas where you feel less satisfied. Stay motivated and committed to your personal growth journey, and don\'t hesitate to seek support or guidance when needed.',
-    3.0:'You\'re making progress, but there\'s potential for improvement. Take this opportunity to reflect on your responses and identify areas where you\'d like to see positive changes. Set achievable goals and take small steps towards enhancing your well-being in all aspects of your life.',
-    4.0:'It\'s okay to face challenges, and your responses indicate areas where you may need additional support or attention. Take this as an opportunity to prioritize your well-being and seek help where necessary. Remember that progress takes time, and every step towards improvement is worth celebrating. Stay resilient and keep moving forward.',
+    1.0:'You\'re making progress, but there\'s potential for improvement. Take this opportunity to reflect on your responses and identify areas where you\'d like to see positive changes. Set achievable goals and take small steps towards enhancing your well-being in all aspects of your life.',
+    0.0:'It\'s okay to face challenges, and your responses indicate areas where you may need additional support or attention. Take this as an opportunity to prioritize your well-being and seek help where necessary. Remember that progress takes time, and every step towards improvement is worth celebrating. Stay resilient and keep moving forward.',
   };
 
   @override

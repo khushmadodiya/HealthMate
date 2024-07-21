@@ -37,3 +37,8 @@ class _SpleshScreenState extends State<SpleshScreen> {
     );
   }
 }
+
+Widget container(){
+  return Container();
+}
+

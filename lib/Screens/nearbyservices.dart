@@ -32,7 +32,6 @@ class _EmergencyState extends State<Emergency> {
       Fluttertoast.showToast(msg: 'Could not launch phone dialer');
     }
   }
-
   @override
   Widget build(BuildContext context) {
     return KeyboardHider(
